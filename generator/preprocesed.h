@@ -64,14 +64,16 @@ enum ImPlotAxisFlags_ {
     ImPlotAxisFlags_NoTickLabels = 1 << 3,
     ImPlotAxisFlags_NoInitialFit = 1 << 4,
     ImPlotAxisFlags_NoMenus = 1 << 5,
-    ImPlotAxisFlags_Opposite = 1 << 6,
-    ImPlotAxisFlags_Foreground = 1 << 7,
-    ImPlotAxisFlags_Invert = 1 << 8,
-    ImPlotAxisFlags_AutoFit = 1 << 9,
-    ImPlotAxisFlags_RangeFit = 1 << 10,
-    ImPlotAxisFlags_PanStretch = 1 << 11,
-    ImPlotAxisFlags_LockMin = 1 << 12,
-    ImPlotAxisFlags_LockMax = 1 << 13,
+    ImPlotAxisFlags_NoSideSwitch = 1 << 6,
+    ImPlotAxisFlags_NoHighlight = 1 << 7,
+    ImPlotAxisFlags_Opposite = 1 << 8,
+    ImPlotAxisFlags_Foreground = 1 << 9,
+    ImPlotAxisFlags_Invert = 1 << 10,
+    ImPlotAxisFlags_AutoFit = 1 << 11,
+    ImPlotAxisFlags_RangeFit = 1 << 12,
+    ImPlotAxisFlags_PanStretch = 1 << 13,
+    ImPlotAxisFlags_LockMin = 1 << 14,
+    ImPlotAxisFlags_LockMax = 1 << 15,
     ImPlotAxisFlags_Lock = ImPlotAxisFlags_LockMin | ImPlotAxisFlags_LockMax,
     ImPlotAxisFlags_NoDecorations = ImPlotAxisFlags_NoLabel | ImPlotAxisFlags_NoGridLines | ImPlotAxisFlags_NoTickMarks | ImPlotAxisFlags_NoTickLabels,
     ImPlotAxisFlags_AuxDefault = ImPlotAxisFlags_NoGridLines | ImPlotAxisFlags_Opposite
@@ -460,7 +462,7 @@ template <typename T> void PlotDigital(const char* label_id, const T* xs, const 
            bool DragPoint(int id, double* x, double* y, const ImVec4& col, float size = 4, ImPlotDragToolFlags flags=0);
            bool DragLineX(int id, double* x, const ImVec4& col, float thickness = 1, ImPlotDragToolFlags flags=0);
            bool DragLineY(int id, double* y, const ImVec4& col, float thickness = 1, ImPlotDragToolFlags flags=0);
-           bool DragRect(int id, double* x_min, double* y_min, double* x_max, double* y_max, const ImVec4& col, ImPlotDragToolFlags flags=0);
+           bool DragRect(int id, double* x1, double* y1, double* x2, double* y2, const ImVec4& col, ImPlotDragToolFlags flags=0);
            void Annotation(double x, double y, const ImVec4& col, const ImVec2& pix_offset, bool clamp, bool round = false);
            void Annotation(double x, double y, const ImVec4& col, const ImVec2& pix_offset, bool clamp, const char* fmt, ...) __attribute__((format(printf, 6, 6 +1)));
            void AnnotationV(double x, double y, const ImVec4& col, const ImVec2& pix_offset, bool clamp, const char* fmt, va_list args) __attribute__((format(printf, 6, 0)));

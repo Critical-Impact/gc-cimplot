@@ -99,14 +99,16 @@ typedef enum {
     ImPlotAxisFlags_NoTickLabels = 1 << 3,
     ImPlotAxisFlags_NoInitialFit = 1 << 4,
     ImPlotAxisFlags_NoMenus = 1 << 5,
-    ImPlotAxisFlags_Opposite = 1 << 6,
-    ImPlotAxisFlags_Foreground = 1 << 7,
-    ImPlotAxisFlags_Invert = 1 << 8,
-    ImPlotAxisFlags_AutoFit = 1 << 9,
-    ImPlotAxisFlags_RangeFit = 1 << 10,
-    ImPlotAxisFlags_PanStretch = 1 << 11,
-    ImPlotAxisFlags_LockMin = 1 << 12,
-    ImPlotAxisFlags_LockMax = 1 << 13,
+    ImPlotAxisFlags_NoSideSwitch = 1 << 6,
+    ImPlotAxisFlags_NoHighlight = 1 << 7,
+    ImPlotAxisFlags_Opposite = 1 << 8,
+    ImPlotAxisFlags_Foreground = 1 << 9,
+    ImPlotAxisFlags_Invert = 1 << 10,
+    ImPlotAxisFlags_AutoFit = 1 << 11,
+    ImPlotAxisFlags_RangeFit = 1 << 12,
+    ImPlotAxisFlags_PanStretch = 1 << 13,
+    ImPlotAxisFlags_LockMin = 1 << 14,
+    ImPlotAxisFlags_LockMax = 1 << 15,
     ImPlotAxisFlags_Lock = ImPlotAxisFlags_LockMin | ImPlotAxisFlags_LockMax,
     ImPlotAxisFlags_NoDecorations = ImPlotAxisFlags_NoLabel | ImPlotAxisFlags_NoGridLines | ImPlotAxisFlags_NoTickMarks | ImPlotAxisFlags_NoTickLabels,
     ImPlotAxisFlags_AuxDefault = ImPlotAxisFlags_NoGridLines | ImPlotAxisFlags_Opposite
@@ -1087,7 +1089,7 @@ CIMGUI_API void ImPlot_PlotDummy(const char* label_id,ImPlotDummyFlags flags);
 CIMGUI_API bool ImPlot_DragPoint(int id,double* x,double* y,const ImVec4 col,float size,ImPlotDragToolFlags flags);
 CIMGUI_API bool ImPlot_DragLineX(int id,double* x,const ImVec4 col,float thickness,ImPlotDragToolFlags flags);
 CIMGUI_API bool ImPlot_DragLineY(int id,double* y,const ImVec4 col,float thickness,ImPlotDragToolFlags flags);
-CIMGUI_API bool ImPlot_DragRect(int id,double* x_min,double* y_min,double* x_max,double* y_max,const ImVec4 col,ImPlotDragToolFlags flags);
+CIMGUI_API bool ImPlot_DragRect(int id,double* x1,double* y1,double* x2,double* y2,const ImVec4 col,ImPlotDragToolFlags flags);
 CIMGUI_API void ImPlot_Annotation_Bool(double x,double y,const ImVec4 col,const ImVec2 pix_offset,bool clamp,bool round);
 CIMGUI_API void ImPlot_Annotation_Str(double x,double y,const ImVec4 col,const ImVec2 pix_offset,bool clamp,const char* fmt,...);
 CIMGUI_API void ImPlot_AnnotationV(double x,double y,const ImVec4 col,const ImVec2 pix_offset,bool clamp,const char* fmt,va_list args);
